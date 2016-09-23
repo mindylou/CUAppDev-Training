@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CE562601D917926002754D8 /* MessageRevealer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageRevealer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CE562601D917926002754D8 /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE562631D917926002754D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE562651D917926002754D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0CE562681D917926002754D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		0CE562571D917926002754D8 = {
 			isa = PBXGroup;
 			children = (
-				0CE562621D917926002754D8 /* MessageRevealer */,
+				0CE562621D917926002754D8 /* Project1 */,
 				0CE562611D917926002754D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		0CE562611D917926002754D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0CE562601D917926002754D8 /* MessageRevealer.app */,
+				0CE562601D917926002754D8 /* Project1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0CE562621D917926002754D8 /* MessageRevealer */ = {
+		0CE562621D917926002754D8 /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
 				0CE562631D917926002754D8 /* AppDelegate.swift */,
@@ -61,15 +61,16 @@
 				0CE5626C1D917926002754D8 /* LaunchScreen.storyboard */,
 				0CE5626F1D917926002754D8 /* Info.plist */,
 			);
+			name = Project1;
 			path = MessageRevealer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0CE5625F1D917926002754D8 /* MessageRevealer */ = {
+		0CE5625F1D917926002754D8 /* Project1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CE562721D917926002754D8 /* Build configuration list for PBXNativeTarget "MessageRevealer" */;
+			buildConfigurationList = 0CE562721D917926002754D8 /* Build configuration list for PBXNativeTarget "Project1" */;
 			buildPhases = (
 				0CE5625C1D917926002754D8 /* Sources */,
 				0CE5625D1D917926002754D8 /* Frameworks */,
@@ -79,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = MessageRevealer;
+			name = Project1;
 			productName = MessageRevealer;
-			productReference = 0CE562601D917926002754D8 /* MessageRevealer.app */;
+			productReference = 0CE562601D917926002754D8 /* Project1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0CE5625B1D917926002754D8 /* Build configuration list for PBXProject "MessageRevealer" */;
+			buildConfigurationList = 0CE5625B1D917926002754D8 /* Build configuration list for PBXProject "Project1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0CE5625F1D917926002754D8 /* MessageRevealer */,
+				0CE5625F1D917926002754D8 /* Project1 */,
 			);
 		};
 /* End PBXProject section */
@@ -281,7 +282,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CE5625B1D917926002754D8 /* Build configuration list for PBXProject "MessageRevealer" */ = {
+		0CE5625B1D917926002754D8 /* Build configuration list for PBXProject "Project1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CE562701D917926002754D8 /* Debug */,
@@ -290,13 +291,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0CE562721D917926002754D8 /* Build configuration list for PBXNativeTarget "MessageRevealer" */ = {
+		0CE562721D917926002754D8 /* Build configuration list for PBXNativeTarget "Project1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CE562731D917926002754D8 /* Debug */,
 				0CE562741D917926002754D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
