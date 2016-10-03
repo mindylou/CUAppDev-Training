@@ -285,6 +285,7 @@
 				0C00A79A1DA0371E00C0CEC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

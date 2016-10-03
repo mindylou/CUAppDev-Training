@@ -8,24 +8,37 @@
 
 import UIKit
 
+class Student {
+    var name:String
+    var year:String
+    var major:String
+    var GPA:String
+    
+    init(name:String, year:String, major:String, GPA:String){
+        self.name = name
+        self.year = year
+        self.major = major
+        self.GPA = GPA
+    }
+}
+
 class ViewController: UIViewController {
-    let labelWidth:CGFloat = 60
-    let labelHeight:CGFloat = 20
-    let labelX:CGFloat = 15
+
+    let nameLabel = UILabel(frame: CGRect(x: 15, y: 50, width: 60, height: 20))
+    let yearLabel = UILabel(frame: CGRect(x: 15, y: 100, width: 60, height: 20))
+    let majorLabel = UILabel(frame: CGRect(x: 15, y: 150, width: 60, height: 20))
+    let gpaLabel = UILabel(frame: CGRect(x: 15, y: 200, width: 60, height: 20))
     
-    let fieldX:CGFloat = 90
-    let fieldWidth:CGFloat = 265
-    let fieldHeight:CGFloat = 25
+    let nameField = UITextField(frame: CGRect(x: 90, y: 47, width: 265, height: 25))
+    let yearField = UITextField(frame: CGRect(x: 90, y: 97, width: 265, height: 25))
+    let majorField = UITextField(frame: CGRect(x: 90, y: 147, width: 265, height: 25))
+    let gpaField = UITextField(frame: CGRect(x: 90, y: 197, width: 265, height: 25))
     
-    let addStudentInfoX:CGFloat = 120
-    let addStudentInfoY:CGFloat = 250
-    let addStudentInfoWidth:CGFloat = 140
-    let addStudentInfoHeight:CGFloat = 25
+    let addStudentInfoButton = UIButton(frame: CGRect(x: 120, y: 250, width: 140, height: 25))
     
-    let studentInformationLabelX:CGFloat = 104
-    let studentInformationLabelY:CGFloat = 350
-    let studentInformationLabelWidth:CGFloat = 250
-    let studentInformationLabelHeight:CGFloat = 25
+    let studentInformationLabel = UILabel(frame: CGRect(x: 104, y: 350, width: 250, height: 25))
+    
+    let studentDescriptions:UITextView = UITextView(frame: CGRect(x: 15, y: 375, width: 345, height: 300))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,55 +49,63 @@ class ViewController: UIViewController {
     }
     
     func addUIElements(){
-        let nameLabel = UILabel(frame: CGRect(x: labelX, y: 50, width: labelWidth, height: labelHeight))
         nameLabel.text = "Name:"
         view.addSubview(nameLabel)
         
-        let nameField = UITextField(frame: CGRect(x: fieldX, y: 47, width: fieldWidth, height: fieldHeight))
         nameField.borderStyle = UITextBorderStyle.roundedRect
         view.addSubview(nameField)
         
-        let yearLabel = UILabel(frame: CGRect(x: labelX, y: 100, width: labelWidth, height: labelHeight))
         yearLabel.text = "Year:"
         view.addSubview(yearLabel)
         
-        let yearField = UITextField(frame: CGRect(x: fieldX, y: 97, width: fieldWidth, height: fieldHeight))
         yearField.borderStyle = UITextBorderStyle.roundedRect
         view.addSubview(yearField)
         
-        let majorLabel = UILabel(frame: CGRect(x: labelX, y: 150, width: labelWidth, height: labelHeight))
         majorLabel.text = "Major:"
         view.addSubview(majorLabel)
         
-        let majorField = UITextField(frame: CGRect(x: fieldX, y: 147, width: fieldWidth, height: fieldHeight))
         majorField.borderStyle = UITextBorderStyle.roundedRect
         view.addSubview(majorField)
         
-        let gpaLabel = UILabel(frame: CGRect(x: labelX, y: 200, width: labelWidth, height: labelHeight))
         gpaLabel.text = "GPA:"
         view.addSubview(gpaLabel)
         
-        let gpaField = UITextField(frame: CGRect(x: fieldX, y: 197, width: fieldWidth, height: fieldHeight))
         gpaField.borderStyle = UITextBorderStyle.roundedRect
         view.addSubview(gpaField)
         
-        let addStudentInfoButton = UIButton(frame: CGRect(x: addStudentInfoX, y: addStudentInfoY, width: addStudentInfoWidth, height: addStudentInfoHeight))
+        
         addStudentInfoButton.addTarget(self, action: #selector(addTextFieldsToScreen), for: .touchUpInside)
         addStudentInfoButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
         addStudentInfoButton.setTitle("Add Student", for: UIControlState.normal)
         addStudentInfoButton.titleLabel?.textAlignment = NSTextAlignment.center
         view.addSubview(addStudentInfoButton)
         
-        let studentInformationLabel = UILabel(frame: CGRect(x: studentInformationLabelX, y: studentInformationLabelY, width: studentInformationLabelWidth, height: studentInformationLabelHeight))
         studentInformationLabel.text = "Student Information"
         studentInformationLabel.font = UIFont.systemFont(ofSize: 20)
         view.addSubview(studentInformationLabel)
         
+        studentDescriptions.isEditable = true
+        studentDescriptions.textAlignment = NSTextAlignment.center
+        studentDescriptions.text = ""
+        view.addSubview(studentDescriptions)
+        
+    }
+    
+    func initializeStudentAndReturnString(nom:String, yr:String, maj:String, gpa:String) -> String{
+        let newStudent = Student(name: nom, year: yr, major: maj, GPA: gpa)
+        
+        return newStudent.name + " is majoring in " + newStudent.major + " with a " + newStudent.GPA
     }
     
     func addTextFieldsToScreen(){
-        
+        if (nameField.text! == "" || yearField.text! == "" || majorField.text! == "" || gpaField.text! == "") {
+        }
+        else{
+            studentDescriptions.text = studentDescriptions.text + "\n" + initializeStudentAndReturnString(nom: nameField.text!, yr: yearField.text!, maj: majorField.text!, gpa: gpaField.text!)
+        }
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
