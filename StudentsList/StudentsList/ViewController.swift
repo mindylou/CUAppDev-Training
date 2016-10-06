@@ -9,12 +9,12 @@
 import UIKit
 
 class Student {
-    var name:String
-    var year:String
-    var major:String
-    var GPA:String
+    var name: String
+    var year: Int
+    var major: String
+    var GPA: Float
     
-    init(name:String, year:String, major:String, GPA:String){
+    init(name: String, year: Int, major: String, GPA: Float){
         self.name = name
         self.year = year
         self.major = major
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     let studentInformationLabel = UILabel(frame: CGRect(x: 104, y: 350, width: 250, height: 25))
     
-    let studentDescriptions:UITextView = UITextView(frame: CGRect(x: 15, y: 375, width: 345, height: 300))
+    let studentDescriptionsTextView:UITextView = UITextView(frame: CGRect(x: 20, y: 375, width: 345, height: 300))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         
         
         addStudentInfoButton.addTarget(self, action: #selector(addTextFieldsToScreen), for: .touchUpInside)
-        addStudentInfoButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        addStudentInfoButton.setTitleColor(UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1), for: UIControlState.normal)
         addStudentInfoButton.setTitle("Add Student", for: UIControlState.normal)
         addStudentInfoButton.titleLabel?.textAlignment = NSTextAlignment.center
         view.addSubview(addStudentInfoButton)
@@ -84,24 +84,36 @@ class ViewController: UIViewController {
         studentInformationLabel.font = UIFont.systemFont(ofSize: 20)
         view.addSubview(studentInformationLabel)
         
-        studentDescriptions.isEditable = true
-        studentDescriptions.textAlignment = NSTextAlignment.center
-        studentDescriptions.text = ""
-        view.addSubview(studentDescriptions)
+        studentDescriptionsTextView.isEditable = false
+        studentDescriptionsTextView.textAlignment = NSTextAlignment.center
+        studentDescriptionsTextView.font = UIFont.systemFont(ofSize: 14)
+        studentDescriptionsTextView.text = ""
+        view.addSubview(studentDescriptionsTextView)
         
     }
     
-    func initializeStudentAndReturnString(nom:String, yr:String, maj:String, gpa:String) -> String{
+    func initializeStudentAndReturnString(nom: String, yr: Int, maj: String, gpa: Float) -> String{
         let newStudent = Student(name: nom, year: yr, major: maj, GPA: gpa)
         
-        return newStudent.name + " is majoring in " + newStudent.major + " with a " + newStudent.GPA
+        return newStudent.name + " is majoring in \(newStudent.major) with a \(newStudent.GPA)"
     }
     
     func addTextFieldsToScreen(){
-        if (nameField.text! == "" || yearField.text! == "" || majorField.text! == "" || gpaField.text! == "") {
-        }
-        else{
-            studentDescriptions.text = studentDescriptions.text + "\n" + initializeStudentAndReturnString(nom: nameField.text!, yr: yearField.text!, maj: majorField.text!, gpa: gpaField.text!)
+        let potentiallyAYearValue: Int? = Int(yearField.text!)
+        let potentiallyAGPAValue: Float? = Float(gpaField.text!)
+        
+        if let validYear = potentiallyAYearValue {
+            if let validGPA = potentiallyAGPAValue {
+                if validYear > 1865 && validYear < 2020 {
+                if (nameField.text! == "" || yearField.text! == "" || majorField.text! == "" || gpaField.text! == "") {
+                    // don't add text if nothing is filled out
+                }
+                else{
+                    studentDescriptionsTextView.text = studentDescriptionsTextView.text + "\n" + initializeStudentAndReturnString(nom: nameField.text!, yr: Int(yearField.text!)!, maj: majorField.text!, gpa: Float(gpaField.text!)!)
+                }
+
+                }
+            }
         }
     }
     
