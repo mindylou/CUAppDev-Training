@@ -98,13 +98,18 @@ class ViewController: UIViewController {
         return newStudent.name + " is majoring in \(newStudent.major) with a \(newStudent.GPA)"
     }
     
+    func GPAlessThan(floatOne: Float, floatTwo: Float) -> Bool {
+        /* Precondition: floatOne and floatTwo are both GPA values to the hundredths digits */
+        return floatOne > 0 && (floatOne * 100 < floatTwo * 100)
+    }
+    
     func addTextFieldsToScreen(){
         let potentiallyAYearValue: Int? = Int(yearField.text!)
         let potentiallyAGPAValue: Float? = Float(gpaField.text!)
         
         if let validYear = potentiallyAYearValue {
             if let validGPA = potentiallyAGPAValue {
-                if validYear > 1865 && validYear < 2020 {
+                if validYear > 1865 && validYear < 2020 && GPAlessThan(floatOne: validGPA, floatTwo: 4.33){
                 if (nameField.text! == "" || yearField.text! == "" || majorField.text! == "" || gpaField.text! == "") {
                     // don't add text if nothing is filled out
                 }
