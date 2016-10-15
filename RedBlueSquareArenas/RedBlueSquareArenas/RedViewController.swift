@@ -10,14 +10,16 @@ import UIKit
 
 class RedViewController: UIViewController {
     var redSquareLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
+                
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: view) {
             redSquareLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))

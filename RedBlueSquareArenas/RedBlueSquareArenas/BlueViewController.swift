@@ -10,12 +10,23 @@ import UIKit
 
 class BlueViewController: UIViewController {
     var blueSquareLabel: UILabel!
+    let goBackToViewControllerButton: UIButton = UIButton(frame: CGRect(x: 5, y: 30, width: 50, height: 20))
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
+        goBackToViewControllerButton.titleLabel?.textAlignment = NSTextAlignment.center
+        goBackToViewControllerButton.setTitle("Back", for: UIControlState.normal)
+        goBackToViewControllerButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        goBackToViewControllerButton.addTarget(self, action: #selector(showViewControllerModal), for: .touchUpInside)
+        view.addSubview(goBackToViewControllerButton)
+
+    }
+    func showViewControllerModal() {
+        present(ViewController(), animated: true, completion: nil)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

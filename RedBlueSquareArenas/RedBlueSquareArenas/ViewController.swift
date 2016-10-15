@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     let redSquareArenaButton: UIButton = UIButton(frame: CGRect(x: 90, y: 250, width: 200, height: 20))
     
     let blueSquareArenaButton: UIButton = UIButton(frame: CGRect(x: 90, y: 300, width: 200, height: 20))
+    
+    let crazySquareArenaButton: UIButton = UIButton(frame: CGRect(x: 90, y: 350, width: 200, height: 20))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +38,40 @@ class ViewController: UIViewController {
         blueSquareArenaButton.addTarget(self, action: #selector(showBlueViewControllerPush),
                                         for: .touchUpInside)
         view.addSubview(blueSquareArenaButton)
+        
+        crazySquareArenaButton.titleLabel?.textAlignment = NSTextAlignment.center
+        crazySquareArenaButton.setTitle("Crazy Square Arena", for: UIControlState.normal)
+        crazySquareArenaButton.setTitleColor(getRandomColor(), for: UIControlState.normal)
+        crazySquareArenaButton.addTarget(self, action: #selector(showCrazyColorViewControllerPush), for: .touchUpInside)
+        view.addSubview(crazySquareArenaButton)
+    }
+    
+    func getRandomColor() -> UIColor {
+        let randomRed: CGFloat = CGFloat(drand48())
+        let randomGreen: CGFloat = CGFloat(drand48())
+        let randomBlue: CGFloat = CGFloat(drand48())
+        
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
     
     func showRedViewControllerPush() {
         navigationController?.pushViewController(RedViewController(), animated: true)
+        
+    }
+    
+    func showBlueViewControllerModal() {
+        present(BlueViewController(), animated: true, completion: nil)
+        // There is something wrong with this because it's not going back properly
     }
     
     func showBlueViewControllerPush() {
         navigationController?.pushViewController(BlueViewController(), animated: true)
     }
 
+    func showCrazyColorViewControllerPush() {
+        navigationController?.pushViewController(CrazyColorViewController(), animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
