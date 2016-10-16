@@ -37,7 +37,7 @@ class CrazyColorViewController: UIViewController {
         showHideButton.addTarget(self, action: #selector(changeShowHideCounter), for: .touchUpInside)
         view.addSubview(showHideButton)
         
-        sizeOfSquareSlider.minimumValue = 0
+        sizeOfSquareSlider.minimumValue = 2
         sizeOfSquareSlider.maximumValue = 100
         sizeOfSquareSlider.isContinuous = true
         sizeOfSquareSlider.tintColor = getRandomColor()
