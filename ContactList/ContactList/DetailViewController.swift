@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
         phoneNumberLabel.textColor = .black
         view.addSubview(phoneNumberLabel)
         
-        phoneNumberField = UITextField(frame: CGRect(x: 20, y: 305, width: 150, height: 30))
+        phoneNumberField = UITextField(frame: CGRect(x: 20, y: 305, width: 300, height: 30))
         phoneNumberField.text = contact.phoneNumber
         phoneNumberField.textColor = self.view.tintColor
         phoneNumberField.borderStyle = .none
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController {
         emailLabel.text = "email"
         view.addSubview(emailLabel)
         
-        emailField = UITextField(frame: CGRect(x: 20, y: 375, width: 150, height: 30))
+        emailField = UITextField(frame: CGRect(x: 20, y: 375, width: 300, height: 30))
         emailField.text = contact.email
         emailField.textColor = self.view.tintColor
         emailField.borderStyle = .none

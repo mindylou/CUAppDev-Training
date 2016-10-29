@@ -26,6 +26,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var contactList = [Contact]()
     var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +46,29 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.register(ContactTableViewCell.self, forCellReuseIdentifier: "Reuse")
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(shuffleList), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        
         getContacts()
         
+    }
+    
+    func shuffleList() {
+        let lengthOfContactList = contactList.count
+        for index in 0...lengthOfContactList {
+            let newIndex = Int(arc4random_uniform(UInt32(lengthOfContactList)-1))
+//            if index != newIndex {
+//                swap(&contactList[index], &contactList[newIndex])
+//            } // this currently isn't working
+        }
+        
+        tableView.reloadData()
+        
+        if refreshControl.isRefreshing{
+            refreshControl.endRefreshing()
+        }
     }
     
     func getContacts() {
