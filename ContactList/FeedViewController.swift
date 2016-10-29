@@ -96,8 +96,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func changeInfo(newNumber: String, newEmail: String, index: Int) {
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
 
