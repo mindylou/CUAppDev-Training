@@ -58,10 +58,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func shuffleList() {
         let lengthOfContactList = contactList.count
         for index in 0...lengthOfContactList {
-            let newIndex = Int(arc4random_uniform(UInt32(lengthOfContactList)-1))
-//            if index != newIndex {
-//                swap(&contactList[index], &contactList[newIndex])
-//            } // this currently isn't working
+            let newIndex = Int(arc4random_uniform(UInt32(lengthOfContactList-index)))+index
+            if index != newIndex {
+                swap(&contactList[index], &contactList[newIndex])
+            } // this currently isn't working
         }
         
         tableView.reloadData()
