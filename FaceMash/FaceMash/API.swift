@@ -43,7 +43,7 @@ class API {
         return [String: Any]()
     }
     
-    func peopleFromDictionary(dictionary: [String: Any]) -> [[Person]] {
+    func matchupsFromDictionary(dictionary: [String: Any]) -> [[Person]] {
         var matchupList = [[Person]]()
         
         if let matchupArray = dictionary["matchups"] as? [[String: Any]] {

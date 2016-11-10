@@ -22,11 +22,13 @@ class FaceMashView: UIView {
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.9))
         imageView.backgroundColor = .white
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         addSubview(imageView)
         
         nameLabel = UILabel(frame: CGRect(x: 0, y: frame.height * 0.9, width: frame.width * 0.9, height: frame.height * 0.1))
         nameLabel.center = CGPoint(x: frame.width/2.0, y: nameLabel.center.y)
+        nameLabel.textAlignment = .center
         nameLabel.baselineAdjustment = .alignCenters
         addSubview(nameLabel)
     }
