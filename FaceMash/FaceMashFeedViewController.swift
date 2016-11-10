@@ -62,9 +62,7 @@ class FaceMashFeedViewController: UIViewController {
             
             self.cards[0].alpha = 0
             
-            }) { (_) in
-//                self.cards[0].removeFromSuperview()
-        }
+            })
         self.cards.remove(at: 0)
 
         UIView.animate(withDuration: 1) {
@@ -114,10 +112,10 @@ class FaceMashFeedViewController: UIViewController {
                 if cardOne.frame.contains(location) {
                     touchLocation = location
                     
-                    UIView.animate(withDuration: 0.7, animations: {
+                    UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3.0, options: .curveEaseInOut, animations: {
                         cardOne.center = self.view.center
                         cardOne.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                        })
+                    })
                     UIView.animate(withDuration: 0.7, animations: {
                         cardTwo.center = self.view.center
                         self.view.sendSubview(toBack: cardTwo)
@@ -131,10 +129,11 @@ class FaceMashFeedViewController: UIViewController {
                 else if cardTwo.frame.contains(location) {
                     touchLocation = location
                     
-                    UIView.animate(withDuration: 0.7, animations: {
+                    UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 3.0, options: .curveEaseInOut, animations: {
                         cardTwo.center = self.view.center
                         cardTwo.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                        })
+
+                    })
                     UIView.animate(withDuration: 0.7, animations: {
                         cardOne.center = self.view.center
                         self.view.sendSubview(toBack: cardOne)
@@ -148,6 +147,7 @@ class FaceMashFeedViewController: UIViewController {
                     self.nextButton.alpha = 1
                     self.nextButton.isEnabled = true
                 })
+                
             }
             
         }
