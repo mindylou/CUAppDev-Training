@@ -24,17 +24,32 @@ class FaceMashFeedViewController: UIViewController {
     var cards = [FaceMashView]()
     var touchLocation: CGPoint?
     var nextButton: UIButton!
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .lightGray
         
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
         let api = API()
+
+
         api.getDataFromURL { (data: Data?) in
+            self.activityIndicator.stopAnimating()
+            
+            self.activityIndicator.hidesWhenStopped = true
+            self.activityIndicator.alpha = 0
+
             if let unwrappedData = data {
+
                 let dictionary = api.dictionaryFromData(data: unwrappedData)
                 let matchups = api.matchupsFromDictionary(dictionary: dictionary)
+
                 self.matchups = matchups
                 
                 self.addCardsToView()
@@ -75,6 +90,7 @@ class FaceMashFeedViewController: UIViewController {
     
     func addCardsToView() {
         DispatchQueue.main.async {
+
             for matchup in self.matchups {
                 let cardOne = FaceMashView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.4, height: self.view.frame.height * 0.35))
                 let cardTwo = FaceMashView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.4, height: self.view.frame.height * 0.35))
